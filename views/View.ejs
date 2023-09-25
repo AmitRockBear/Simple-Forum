@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Forum</title>
+</head>
+<body class="bg-dark">
+    <div class="container bg-light">
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" name="title" type="text" class="form-control" placeholder="Enter your post's title here" required>
+            </div>
+            <div class="form-group">
+                <textarea id="body" name="body" class="form-control" rows="3" placeholder="Write your post here" required></textarea>
+            </div>
+            <div class='row'>
+                <input id="submit" class="btn btn-outline-primary m-1" value="submit" type="submit"/>
+                <button id="done_edit" type="button" class='invisible btn btn-outline-success m-1'>Done</button>
+                <button id="cancel_edit" type="button" class="invisible btn btn-outline-secondary m-1">Cancel</button>
+            </div>
+        </form>
+        <br/>
+        <div class="row">
+            <button id="logout" type="button" class='btn btn-outline-secondary m-1'>Logout</button>
+        </div>
+        <div class="list-group">
+            <% for(var i=0; i<data.length; i ++){ %>
+                <div class="row">
+                    <div class="col-8">
+                        <a href="http://localhost:3000/posts/post/<%= data[i]._id %>">
+                            <button name="title" class="list-group-item list-group-item-action">
+                                    <%= data[i].title %>
+                            </button>     
+                        </a>
+                    </div>
+                    <button class="col btn btn-secondary">Edit</button>
+                    <button class="col btn btn-danger">Delete</button>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./View.js"></script>
+</body>
+</html>
